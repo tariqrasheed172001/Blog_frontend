@@ -1,5 +1,6 @@
 import React from "react";
-import { Typography, Button, Container } from "@material-ui/core";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
 
 function NoBlogs() {
