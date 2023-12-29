@@ -1,7 +1,6 @@
 import React from "react";
 import { Typography, Button, Container } from "@material-ui/core";
 import { useNavigate } from "react-router-dom";
-import ModeEditOutlineIcon from "@mui/icons-material/ModeEditOutline";
 
 function NoBlogs() {
   const navigate = useNavigate();
