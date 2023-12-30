@@ -45,7 +45,10 @@ const Auth = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (isSignup) {
-      if(inputs.password !== inputs.confirm_password){
+      if (inputs.password.length < 6) {
+        setConf({ msg: "Password should be at least 6 characters", variant: "warning" });
+        return; // Stop further execution
+      }else if(inputs.password !== inputs.confirm_password){
         setConf({msg: "Passwords do not match!",variant: "warning"})
       }else{
         sendRequest("signup")

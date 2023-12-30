@@ -8,7 +8,7 @@ import useNotification from "./Snackbar";
 function Blogs() {
   const [blogs, setBlogs] = useState();
   const [popup, setPopup] = useState(false);
-  const [conf,setConf] = useNotification();
+  const [conf, setConf] = useNotification();
   const [blogInfo, setBlogInfo] = useState({
     title: "",
     content: "",
@@ -20,12 +20,15 @@ function Blogs() {
     const url = `${process.env.REACT_APP_BACKEND_URL}/api/blog`;
     const res = await axios
       .get(url)
-      .catch((err) => setConf({msg:'Internal server error, Try again later!',variant: "error"}));
+      .catch((err) =>
+        setConf({
+          msg: "Internal server error, Try again later!",
+          variant: "error",
+        })
+      );
     const data = await res.data;
     return data;
   };
-
-
 
   useEffect(() => {
     setBlogs(null);
@@ -34,9 +37,8 @@ function Blogs() {
 
   return (
     <div>
-      {blogs ?
+      {blogs?.length > 0 ? (
         blogs.map((blog, index) => (
-          
           <Blog
             id={blog._id}
             isUser={localStorage.getItem("userId") === blog.user._id}
@@ -47,7 +49,10 @@ function Blogs() {
             setPopup={setPopup}
             setBlogInfo={setBlogInfo}
           />
-        )) : (<FirstBlog />)}
+        ))
+      ) : (
+        <FirstBlog />
+      )}
       {popup && <BlogPopup blogInfo={blogInfo} setPopup={setPopup} />}
     </div>
   );
