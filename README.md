@@ -34,7 +34,7 @@ Make sure you have the following installed before starting:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/your-frontend-repo.git
+   git clone https://github.com/tariqrasheed172001/Blog_frontend.git
 2. cd your-frontend-repo
 3. npm install
 
