@@ -175,7 +175,10 @@ export default function Navbar() {
 
             {isLoggedIn && (
               <Button
-                onClick={() => dispatch(authActions.logout())}
+                onClick={() => {
+                  dispatch(authActions.logout());
+                  localStorage.clear();
+                  }}
                 LinkComponent={Link}
                 to="/"
                 variant="contained"
